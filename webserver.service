@@ -1,0 +1,20 @@
+[Unit]
+Description=Webserver Service
+After=network.target
+
+[Socket]
+ListenStream=80
+NoDelay=true
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=3
+User=ubuntu
+Group=ubuntu
+
+WorkingDirectory=/home/ubuntu/simple-go-http-server
+ExecStart=/home/ubuntu/simple-go-http-server/simple-go-http-server
+
+[Install]
+WantedBy=multi-user.target
